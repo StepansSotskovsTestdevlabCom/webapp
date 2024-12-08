@@ -42,28 +42,6 @@ jobs:
         uses: ./.github/actions/build
         with:
           application: frontend
-          docker_image_tag: stepanssotskocs/webapp-frontender.outputs.backend = 'true'
-        uses: ./.github/actions/build
-        with:
-          application: backend
-          docker_image_tag: stepanssotskovs/webapp-backend
-  build-frontend:
-    name: Build Frontend
-    runs-on: self-hosted
-    steps:
-      - name: Checkout the code
-        uses: actions/checkout@v4
-      - uses: dorny/paths-filter@v3
-        id: filter
-        with:
-          filters: |
-            frontend:
-              - 'frontend/**'
-      - name: Build Frontend application
-        if: steps.filter.outputs.frontend = 'true'
-        uses: ./.github/actions/build
-        with:
-          application: frontend
           docker_image_tag: stepanssotskovs/webapp-frontend
   deploy-backened-dev:
     name: Delploy Backend to Kubernetes DEV
