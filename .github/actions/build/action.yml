@@ -2,7 +2,7 @@ name: "Build and push docker image"
 description: "Simle composite action for building and pushing docker images"
 inputs:
   application:
-    descrption: "Application for which docker image should be build"
+    description: "Application for which docker image should be build"
     required: true
   docker_image_tag:
     description: "Tag how image should be tagged"
